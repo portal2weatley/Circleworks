@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileNotFoundException;
 
 public class Menu extends JFrame implements ActionListener {
 	 
@@ -48,6 +49,9 @@ public class Menu extends JFrame implements ActionListener {
             panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
             panel.setLayout(new GridLayout(0, 1));
 
+            try {
+                Scores.ScoreReader();
+            } catch (FileNotFoundException e) {}
             high.setText("High Score: "+Scores.HighScore());
             last.setText("Last Score: "+Scores.LastScore());
 
